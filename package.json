@@ -1,15 +1,27 @@
 {
   "name": "wyszukiwarka-gifow",
   "version": "1.0.0",
-  "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
   },
   "author": "",
   "license": "ISC",
-  "start": "http-server",
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
     "http-server": "^0.11.1"
-  }
+  },
+  "dependencies": {
+    "babel-standalone": "^6.26.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Metonimia/React-gif-search-engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Metonimia/React-gif-search-engine/issues"
+  },
+  "homepage": "https://github.com/Metonimia/React-gif-search-engine#readme",
+  "description": ""
 }
