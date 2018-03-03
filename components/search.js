@@ -21,14 +21,14 @@ class Search extends React.Component {
     }
   }
 
-  
-  // const divStyle = {
-  //   fontSize: '1.5em',
-  //   width: '90%',
-  //   maxWidth: '350px'
-  // };
-
   render () {
+
+    const divStyle = {
+      fontSize: '1.5em',
+      width: '90%',
+      maxWidth: '350px'
+    };
+
     return  (
       <input style={divStyle}
         type="text"

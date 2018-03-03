@@ -2,17 +2,17 @@ const GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
 
 class Gif extends React.Component {
 
-  // const divStyle = {
-  //   minHeight: '310px',
-  //   margin: '0.5em'
-  // };
-
   getUrl () {
     return this.props.sourceUrl || GIPHY_LOADING_URL;
   }
 
   render() {
     const url = this.props.loading ? GIPHY_LOADING_URL : this.props.url;
+
+    const divStyle = {
+      minHeight: '310px',
+      margin: '0.5em'
+    };
     
     return (
       <div style={divStyle}>

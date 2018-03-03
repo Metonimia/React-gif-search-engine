@@ -1,3 +1,5 @@
+import Search from "./search.js";
+
 class App extends React.Component {
 
     constructor(props) {
@@ -9,19 +11,17 @@ class App extends React.Component {
         };
     }
 
-    // const divStyles = {
-    //     margin: "0 auto",
-    //     textAlign: "center",
-    //     width: "90%"
-    // };
-
-
     handleSearch(searchingText) {
         this.setState({
           loading: true
         });
         this.getGif(searchingText)
-        .then(response => console.log('Contents: ' + response))
+            .then(response => {
+                this.setState({
+                    gif: response,
+                    loading: false
+                    });
+            })
         .catch(error => console.error('Something went wrong', error));
     }
 
@@ -43,17 +43,21 @@ class App extends React.Component {
     // },
 
     getGif(searchingText) {
+        const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
         return new Promise(
             function(resolve, reject) {
-                const request new XMLHttpRequest(); 
+                const request = new XMLHttpRequest(); 
                 request.onload = function() {
                     if (this.status === 200) {
-                        resolve(const data = JSON.parse(xhr.responseText).data;
-                                const gif = {  
-                                    url: data.fixed_width_downsampled_url,
-                                    sourceUrl: data.url)
-                                };
-                    } else reject(new Error(this.statusText));
+                        const data = JSON.parse(xhr.responseText).data;
+                        const gif = {  
+                            url: data.fixed_width_downsampled_url,
+                            sourceUrl: data.url
+                        };
+                        resolve(gif);
+                    } else {
+                        reject(new Error(this.statusText));
+                    };
                 };
                 request.onerror = function () {
                 reject(new Error(
@@ -65,6 +69,12 @@ class App extends React.Component {
     }
 
     render() {
+
+        const divStyle = {
+            margin: "0 auto",
+            textAlign: "center",
+            width: "90%"
+        };
 
         return (
             <div style={divStyle}>
