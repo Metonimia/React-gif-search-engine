@@ -1,10 +1,10 @@
 const GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
 
-class Gif extends React.Component {
+Gif = React.createClass ({
 
   getUrl () {
     return this.props.sourceUrl || GIPHY_LOADING_URL;
-  }
+  },
 
   render() {
     const url = this.props.loading ? GIPHY_LOADING_URL : this.props.url;
@@ -22,4 +22,4 @@ class Gif extends React.Component {
       </div>
     );
   }
-}
+})
